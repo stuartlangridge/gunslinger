@@ -128,8 +128,25 @@ body {
     text-transform: uppercase;
     border-radius: 1vh;
 }
+#getname input {
+    font-size: 3vh;
+    width: 90%;
+    padding: 2vh 0;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-family: Kreon, serif;
+}
+#getname button {
+    font-size: 4vh;
+}
 
 .page { display: none; }
+[data-shake] { animation: 100ms ease-in-out shake infinite alternate; }
+@keyframes shake {
+    0% { transform: translate(2px, 1px) rotate(1deg); }
+    50% { transform: translate(-2px, -1px) rotate(-1deg); }
+    100% { transform: translate(2px, 1px) rotate(1deg); }
+}
 </style>
 </head>
 <body>
@@ -167,6 +184,7 @@ body {
     <button>Duel another</button>
 </div>
 <div id="playerlist" class="page">
+    <a href="#settings">⚙</a>
     <h2>Wanted</h2>
     <p>For <span id="crime1">Rustlin’</span>, <span id="crime2">Horse-hasslin’</span>, and 
     <span id="crime3">Lewd Behaviour Injurious to Morals</span></p>
@@ -178,8 +196,17 @@ body {
     <p>Sorry, Marshal. You gotta be connected to the network to fight this duel.</p>
     <button>Try again</button>
 </div>
+<div id="getname" class="page dialog">
+    <form>
+        <p>What's your name, stranger?</p>
+        <input id="iname">
+        <button>Let’s duel!</button>
+    </form>
+</div>
+
 </div>
 <script src="/socket.io/socket.io.js"></script>
+<script src="/monikers.js"></script>
 <script>
 
 function Game() {
@@ -311,13 +338,45 @@ function Game() {
     }
 
     function setName(done) {
-        this.name = "madeupname"+Math.random();
-        setTimeout(function() { done(); }, 0);
+        var name = window.localStorage.getItem("gunslinger-name");
+        if (name) {
+            console.log("Got a LocalStorage name", name);
+            setTimeout(function() { done(); }, 0);
+            return;
+        }
+
+        function gotname(e) {
+            e.preventDefault();
+            console.log("No LocalStorage name");
+            var iname = document.getElementById("iname");
+            name = iname.value;
+            if (name == "") {
+                iname.dataset.shake = "shake";
+                setTimeout(function() { delete iname.dataset.shake; }, 400);
+            } else {
+                if (name.indexOf(" ") !== -1) {
+                    if (Math.random() < 0.5) {
+                        name = "“" + MONIKERS.start[Math.floor(Math.random() * MONIKERS.start.length)] + "” " + name;
+                    } else {
+                        name = name.replace(" ", " “" + MONIKERS.middle[Math.floor(Math.random() * MONIKERS.middle.length)] + "” ");
+                    }
+                } else {
+                    name = "“" + MONIKERS.start[Math.floor(Math.random() * MONIKERS.start.length)] + "” " + name;
+                }
+                window.localStorage.setItem("gunslinger-name", name);
+                console.log("Set LocalStorage name and this.name to", name);
+                setTimeout(function() { done(); }, 0);
+            }
+        }
+        // remove it in case it was set from last time
+        document.querySelector("#getname form").removeEventListener("submit", gotname, false);
+        document.querySelector("#getname form").addEventListener("submit", gotname, false);
+        showPage("getname");
     }
 
     function register(done) {
-        socket.emit("register", {name: this.name});
-        console.log("registering as", this.name);
+        console.log("registering as", window.localStorage.getItem("gunslinger-name"));
+        socket.emit("register", {name: window.localStorage.getItem("gunslinger-name")});
         done();
     }
 

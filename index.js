@@ -32,6 +32,8 @@ var moniker = {
         "Backwash", "Dusty"]
 };
 
+app.get("/monikers.js", function(req, res) { res.end("var MONIKERS=" + JSON.stringify(moniker) + ";"); });
+
 var LISTCOUNT = 3;
 
 function generateAINames() {
