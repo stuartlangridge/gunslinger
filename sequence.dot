@@ -1,0 +1,58 @@
+digraph g {
+    START -> "name in localstorage?";
+    "name in localstorage?" -> "msg:register" [label="yes"]; "msg:register" [color="#8888ff"];
+    "name in localstorage?" -> "ask for name" [label="no"];
+    "ask for name" -> "save name in LS"; 
+    "save name in LS" -> "msg:register";
+    "msg:register" -> "event: name ok" [style=dotted]; "event: name ok" [color=green];
+    "event: name ok" -> "msg:getlist"; "msg:getlist" [color="#8888ff"];
+
+    "msg:register" -> "event:challenge {opponent}" [style=dotted]; "event:challenge {opponent}" [color=green];
+    "event:challenge {opponent}" -> "show 'Challenge from X; accept/reject";
+    "show 'Challenge from X; accept/reject" -> "msg:accept {opponent}" [label="accept"];
+    "msg:accept {opponent}" -> "calculate time delta";
+    "show 'Challenge from X; accept/reject" -> "msg:reject {opponent}" [label="reject"];
+    "msg:reject {opponent}" -> "msg:register";
+
+    "msg:register" -> "event:name used" [style=dotted]; "event:name used" [color=green];
+    "event:name used" -> "display 'name in use'";
+    "display 'name in use'" -> "delete name from LS";
+    "delete name from LS" -> "ask for name";
+    "msg:getlist" -> "event:playerlist" [style=dotted]; "event:playerlist" [color=green];
+    "event:playerlist" -> "choose player";
+    "choose player" -> "msg:challenge {opponent}"; "msg:challenge {opponent}" [color="#8888ff"];
+    "msg:challenge {opponent}" -> "event:accept" [style=dotted]; "event:accept" [color=green];
+    "msg:challenge {opponent}" -> "event:reject" [style=dotted]; "event:reject" [color=green];
+    "msg:challenge {opponent}" -> "event:absent" [style=dotted]; "event:absent" [color=green];
+    "event:reject" -> "display 'challenge rejected'";
+    "display 'challenge rejected'" -> "msg:getlist";
+    "event:absent" -> "display 'opponent left'";
+    "display 'opponent left'" -> "msg:getlist";
+
+    "event:accept" -> "calculate time delta";
+    "calculate time delta" -> "display 'gun down by side'";
+    "display 'gun down by side'" -> "local event:gun down";
+    "local event:gun down" -> "msg:ready" [label="not sent ready?"]; "msg:ready" [color="#8888ff"];
+    "msg:ready" -> "gun up";
+    "gun up" -> "start vibrating; start 500ms timer";
+    "start vibrating; start 500ms timer" -> "cancel timer" [label="gun down"]; 
+    "cancel timer" -> "local event:gun down" [label="not sent ready?"];
+    "start vibrating; start 500ms timer" -> "local event:timer fires" [style=dotted];
+    "local event:timer fires" -> "play ricochet";
+    "play ricochet" -> "msg:ricochet"; "msg:ricochet" [color="#8888ff"]; 
+    "msg:ricochet" -> "YOU LOSE";
+
+    "msg:ready" -> "event:opponent ready {firetime}" [style=dotted]; "event:opponent ready {firetime}" [color=green];
+    "event:opponent ready {firetime}" -> "start firetime timer";
+    "start firetime timer" -> "start playing music";
+    "start playing music" -> "local event:firetime timer fires" [style=dotted];
+    "local event:firetime timer fires" -> "stop playing music";
+    "stop playing music" -> "start counter timer";
+    "start counter timer" -> "play draw";
+    "play draw" -> "local event: gun horizontal" [style=dotted];
+    "local event: gun horizontal" -> "stop counter timer";
+    "stop counter timer" -> "play gunshot";
+    "play gunshot" -> "msg:time taken {timedelta}"; "msg:time taken {timedelta}" [color="#8888ff"];
+    "msg:time taken {timedelta}" -> "event:result" [style=dotted]; "event:result" [color=green];
+    "event:result" -> "msg:register";
+}
