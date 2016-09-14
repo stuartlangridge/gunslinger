@@ -68,7 +68,7 @@ body {
     margin-top: 2vh;
 }
 #playerlist ul li {
-    padding: 0.6vh 0;
+    padding: 2vh 0;
     font-size: 3vh;
     border-top: 0.4vh solid rgba(33,26,10,0.1);
     text-overflow: ellipsis;
@@ -103,6 +103,32 @@ body {
 @keyframes spin { from { transform: rotateZ(0deg); } to { transform: rotateZ(360deg); } }
 @keyframes spinflipped { from { transform: scaleX(-1) rotateZ(10deg); } to { transform: scaleX(-1) rotateZ(370deg); } }
 
+.dialog {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    height: 100%;
+    font-size: 5vh;
+}
+.dialog > * {
+    flex: 0 1 auto;
+    align-self: auto;
+    margin: 1em 0;
+}
+.dialog button {
+    width: 90%;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.5);
+    padding: 3vh 0;
+    font-size: 7vh;
+    font-family: Kreon, serif;
+    text-transform: uppercase;
+    border-radius: 1vh;
+}
+
 .page { display: none; }
 </style>
 </head>
@@ -133,21 +159,25 @@ body {
     gun by side
 </div>
 <div id="reject" class="page dialog">
-    challenge rejected
-    <button>OK</button>
+    <p>They hid from you, the cactus-suckin’ jackass!</p>
+    <button>Duel another</button>
 </div>
 <div id="absent" class="page dialog">
-    player left
-    <button>OK</button>
+    <p>That outlaw has vamoosed!</p>
+    <button>Duel another</button>
 </div>
 <div id="playerlist" class="page">
     <h2>Wanted</h2>
-    <p>For Rustlin’, Horse-hasslin’, and Lewd Behaviour Injurious to Morals</p>
+    <p>For <span id="crime1">Rustlin’</span>, <span id="crime2">Horse-hasslin’</span>, and 
+    <span id="crime3">Lewd Behaviour Injurious to Morals</span></p>
     <img src="outlaws.jpg" alt="">
     <p>Duel one o’ these varmints!</p>
     <ul></ul>
 </div>
-
+<div id="noconnection" class="page dialog">
+    <p>Sorry, Marshal. You gotta be connected to the network to fight this duel.</p>
+    <button>Try again</button>
+</div>
 </div>
 <script src="/socket.io/socket.io.js"></script>
 <script>
@@ -156,6 +186,23 @@ function Game() {
     var socket, ELEMENTS = {}, SOUNDS = {}, timedelta = 0;
     var CONTEXTS = {};
 
+    function shuffle(list) {
+        var i, j, t;
+        for (i = 1; i < list.length; i++) {
+            j = Math.floor(Math.random()*(1+i));  // choose j in [0..i]
+            if (j != i) {
+                t = list[i];                        // swap list[i] and list[j]
+                list[i] = list[j];
+                list[j] = t;
+            }
+        }
+    }
+    var crimes = ["Rustlin’", "Horse-hasslin’", "Thievery", "Cattle-Stealin’", "Drinkin’",
+        "Lollygaggin’", "Murder", "Irony", "Riflin’", "Shootin’", "Knives", "Riots", "Melees"];
+    var longcrimes = ["Lewd Behaviour Injurious to Morals", "Robbin’ the Deadwood Stage",
+        "Makin’ Free with Folks’ Property", "Mistreatment of the Women",
+        "Drinking the Whole Spittoon", "Cheatin’ at Cards", "Playin’ With a Stacked Deck",
+        "Buildin’ Sites Requirin’ JS", "Disturbances of the Peace"]
     var msgid = 1;
     function getTimeDelta(done) {
         var deltas = {};
@@ -246,7 +293,7 @@ function Game() {
         }
     }
     function abortTimeout() {
-        console.log("abort abort took too long");
+        showPage("noconnection", function() { location.reload(); });
     }
     function showPage(pn, onClickHandler) {
         // hide all pages
@@ -260,7 +307,7 @@ function Game() {
             }
             btn.addEventListener("click", handlerWrapper, false);
         }
-        page.style.display = "block";
+        page.style.display = page.classList.contains("dialog") ? "flex" : "block";
     }
 
     function setName(done) {
@@ -430,6 +477,11 @@ function Game() {
             "abortTimeout": abortTimeout
         })();
         ELEMENTS.playerlist.innerHTML = "";
+        shuffle(crimes); shuffle(longcrimes);
+        ELEMENTS.crime1.innerHTML = crimes[0];
+        ELEMENTS.crime2.innerHTML = crimes[1];
+        ELEMENTS.crime3.innerHTML = longcrimes[0];
+
         showPage("playerlist");
         socket.emit("getlist");
     }
@@ -460,6 +512,9 @@ function Game() {
         ELEMENTS.theywin_theirname = document.querySelector("#theywin .theirname");
         ELEMENTS.theywin_theirtime= document.querySelector("#theywin .theirtime");
         ELEMENTS.theywin_yourtime = document.querySelector("#theywin .yourtime");
+        ELEMENTS.crime1 = document.getElementById("crime1");
+        ELEMENTS.crime2 = document.getElementById("crime2");
+        ELEMENTS.crime3 = document.getElementById("crime3");
     }
     function populateSounds(done) {
         var sounds = ["draw", "gun", "wild", "ricochet"];
