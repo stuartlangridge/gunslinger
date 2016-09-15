@@ -185,28 +185,49 @@ body {
     60% { transform: rotateZ(0deg); }
     100% { transform: rotateZ(0deg); }
 }
+
+.resultspage img {
+    width: 75%;
+    display: block;
+    margin: 1vh 0;
+    opacity: 0.8;
+}
+.resultspage h3 { font-size: 3vh; }
+.resultspage h2 { font-size: 5vh; margin: 1vh 0 0 0; }
+.resultspage p { margin: 0; }
+.resultspage button { margin: 2vh 0; }
+
 </style>
 </head>
 <body>
 <div id="container">
 
-<div id="youwin" class="page dialog">
-    <p>you win against <span class="theirname">the Shadow</span>!</p>
-    <p>their time: <span class="theirtime">?</span></p>
-    <p>your time: <span class="yourtime">?</span></p>
-    <button>duel again</button>
+<div id="youwin" class="page dialog resultspage">
+    <h2>Got ’em!</h2>
+    <img src="colt.svg" alt="">
+    <h3>You</h3>
+    <p><span class="yourtime">?</span></p>
+    <h3 class="theirname">...</h3>
+    <p><span class="theirtime">?</span></p>
+    <button>Next!</button>
 </div>
-<div id="theywin" class="page dialog">
-    <p>you LOSE against <span class="theirname">the Shadow</span>!</p>
-    <p>their time: <span class="theirtime">?</span></p>
-    <p>your time: <span class="yourtime">?</span></p>
-    <button>duel again</button>
+<div id="theywin" class="page dialog resultspage">
+    <h2>You’re dead, Marshal.</h2>
+    <img src="BigSleep.svg" alt="">
+    <h3 class="theirname">...</h3>
+    <p><span class="theirtime">?</span></p>
+    <h3>You</h3>
+    <p><span class="yourtime">?</span></p>
+    <button>Boot Hill</button>
 </div>
 <div id="who" class="page">
-    who shot who?
+    <h2>but who shot who?</h2>
 </div>
 <div id="duel" class="page">
-    the duel
+    <p>duel</p>
+    <p><small>you shouldn't be looking at this</small></p>
+    <p><small>your phone should be down by your side</small></p>
+    <p><small>so, do that.</small></p>
 </div>
 <div id="waiting" class="page">
 </div>
@@ -240,7 +261,7 @@ body {
 </div>
 <div id="settings" class="page dialog">
     <h2>Settings</h2>
-    <button>OK</button>
+    <button>Choose name</button>
 </div>
 
 
@@ -440,14 +461,14 @@ function Game() {
                 } else {
                     gs = "neither";
                 }
-                console.log("state was", gunState, "and now is", gs, "with elements", e.alpha, e.beta, e.gamma);
                 if (gunState != gs) {
+                    console.log("state was", gunState, "and now is", gs, "with elements", e.alpha, e.beta, e.gamma);
                     var match = gunStateHandlers[gs];
-                    console.log("calling", match, gs, gunStateHandlers);
+                    //console.log("calling", match, gs, gunStateHandlers);
                     if (match) { setTimeout(match, 0); } // important that that gets called in the next tick, not now
                 }
                 gunState = gs;
-                console.log("do", e.alpha, e.beta, e.gamma, gunState);
+                //console.log("do", e.alpha, e.beta, e.gamma, gunState);
             }, false);
         }
     }
@@ -626,11 +647,13 @@ function Game() {
         var vibrating = false, vibratingTimer;
         hasRicocheted = false;
         function startVibrating() {
-            if (vibrating) {
+            if (hasRicocheted) {
+                console.log("We've already ricocheted, so this shouldn't happen");
+            } else if (vibrating) {
                 console.log("already vibrating");
             } else {
                 vibrating = true;
-                console.log("start vibrating");
+                console.log("start vibrating", navigator.vibrate);
                 if (navigator.vibrate) {
                     navigator.vibrate(1000);
                 }
@@ -640,6 +663,7 @@ function Game() {
                     vibrating = false;
                     hasRicocheted = true;
                     playSound("ricochet");
+                    monitorGunState({});
                 }, 1000);
             }
         }
@@ -648,6 +672,7 @@ function Game() {
                 if (vibrating) {
                     console.log("stop vibrating");
                     navigator.vibrate(0);
+                    vibrating = false;
                     clearTimeout(vibratingTimer);
                 }
             },
@@ -698,7 +723,7 @@ function Game() {
     function showSettings() {
         clearSocketMessageWait();
         showPage("settings", function() {
-            console.log("actually change settings");
+            localStorage.removeItem("gunslinger-name");
             location.reload();
         });
     }

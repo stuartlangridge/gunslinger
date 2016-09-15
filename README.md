@@ -8,5 +8,6 @@ Resources used:
 * [Wild West Duel](https://audiojungle.net/item/wild-west-duel/1360053) music by Stefano F Sacchi. (Note that this is not included in the repository (as public/wild.mp3) because it is a purchased asset.)
 * [Western Shot Modern 2](https://www.freesound.org/people/Rock%20Savage/sounds/58904/) by Rock Savage
 * [Cog](https://en.wikipedia.org/wiki/File:CogSimonAlexanderTolhurst.svg) by Simon Alexander Tolhurst
+* [The big sleep](https://openclipart.org/detail/242417/the-big-sleep) by SeriousTux/WS Gilbert
 
 Temporarily, http://www.tulsaworld.com/scene/columnists/jimmietramel/jimmie-tramel-century-after-death-bass-reeves-still-hunting-outlaws/article_c0cb515a-4f25-59cc-9d85-6f2fccfba6ff.html but only until I get a proper image drawn.
