@@ -2,6 +2,7 @@ A mobile web game of Wild West duelling
 
 Resources used:
 
+* [Seb Lee-Delisle](https://twitter.com/seb_ly) who lucidly explained about timing across the network
 * [Rifle](https://openclipart.org/detail/170004/rifle) by baodad at OpenClipArt
 * [Comparing text-shadow to text-stroke](http://codepen.io/ashleynolan/pen/pvwqEm) by Ashley Nolan
 * [Create a Wild Western "Wanted" Poster in Photoshop](http://designinstruct.com/graphic-design/create-a-wild-western-wanted-poster-in-photoshop/) by Bikola Lazarevic at Design Instruct (except we do it in CSS! Yes!)
