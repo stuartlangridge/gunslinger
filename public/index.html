@@ -9,93 +9,93 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-    font-family: 'Sancreek', sans-serif;
-    background: url(design_instruct_wood_grain_texture_05.jpg);
-    background-size: cover;
-    text-align: center;
+  font-family: 'Sancreek', sans-serif;
+  background: url(design_instruct_wood_grain_texture_05.jpg);
+  background-size: cover;
+  text-align: center;
 }
 #container {
-    width: 53vh;
-    height: 94vh;
-    margin: 3vh auto;
-    background: #f2e7cb;
-    padding: 2vh;
-    box-sizing: border-box;
-    -webkit-mask-box-image: url("poster-mask.png") 20 42 42 25 repeat;
-    mask-border: url("poster-mask.png") 20 42 42 25 repeat;
-    box-shadow: inset 0 0 10vh 1vh rgba(33,26,10,0.6);
-    position: relative;
-    overflow: hidden;
+  width: 53vh;
+  height: 94vh;
+  margin: 3vh auto;
+  background: #f2e7cb;
+  padding: 2vh;
+  box-sizing: border-box;
+  -webkit-mask-box-image: url("poster-mask.png") 20 42 42 25 repeat;
+  mask-border: url("poster-mask.png") 20 42 42 25 repeat;
+  box-shadow: inset 0 0 10vh 1vh rgba(33,26,10,0.6);
+  position: relative;
+  overflow: hidden;
 }
 #container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url(Concrete_15_UV_H_CM_1.jpg);
-    background-size: 128px 128px;
-    background-repeat: repeat;
-    pointer-events: none;
-    opacity: 0.3;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(Concrete_15_UV_H_CM_1.jpg);
+  background-size: 128px 128px;
+  background-repeat: repeat;
+  pointer-events: none;
+  opacity: 0.3;
 }
 #playerlist h2 {
-    font-family: Kreon, serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 10vh;
-    text-align: center;
-    -webkit-text-stroke: 0.2vh #f2e7cb;
-    text-stroke: 0.2vh #f2e7cb;
-    color: black;
-    letter-spacing: 0.2vh;
-    text-shadow: 0.2vh 0.2vh 0.1vh #000, -0.2vh -0.2vh 0.1vh #000, -0.2vh 0.2vh 0.1vh #000, 0.2vh -0.2vh 0.1vh #000;
+  font-family: Kreon, serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10vh;
+  text-align: center;
+  -webkit-text-stroke: 0.2vh #f2e7cb;
+  text-stroke: 0.2vh #f2e7cb;
+  color: black;
+  letter-spacing: 0.2vh;
+  text-shadow: 0.2vh 0.2vh 0.1vh #000, -0.2vh -0.2vh 0.1vh #000, -0.2vh 0.2vh 0.1vh #000, 0.2vh -0.2vh 0.1vh #000;
 }
 #playerlist img {
-    width: 100%;
-    display: block;
-    margin: 1vh 0;
-    opacity: 0.8;
-    border: 0.6vh solid rgba(33,26,10,0.4);
+  width: 100%;
+  display: block;
+  margin: 1vh 0;
+  opacity: 0.8;
+  border: 0.6vh solid rgba(33,26,10,0.4);
 }
 #playerlist p {
-    font-size: 3.5vh;
+  font-size: 3.5vh;
 }
 #playerlist ul {
-    list-style: none;
-    border-bottom: 0.4vh solid rgba(33,26,10,0.1);
-    margin-top: 2vh;
+  list-style: none;
+  border-bottom: 0.4vh solid rgba(33,26,10,0.1);
+  margin-top: 2vh;
 }
 #playerlist ul li {
-    padding: 2vh 0;
-    font-size: 3vh;
-    border-top: 0.4vh solid rgba(33,26,10,0.1);
-    text-overflow: ellipsis;
-    overflow: hidden;
+  padding: 2vh 0;
+  font-size: 3vh;
+  border-top: 0.4vh solid rgba(33,26,10,0.1);
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 #playerlist ul li:hover {
-    background: rgba(33,26,10,0.3);
-    cursor: pointer;
+  background: rgba(33,26,10,0.3);
+  cursor: pointer;
 }
 #playerlist ul:empty, #waiting {
-    height: 10vh;
-    position: relative;
+  height: 10vh;
+  position: relative;
 }
 #playerlist ul:empty::before, #playerlist ul:empty::after, #waiting::before, #waiting::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 1vh;
-    margin-left: -4vh;
-    width: 8vh;
-    height: 8vh;
-    background-image: url(rifle.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    animation: 1s linear spin infinite;
-    will-change: transform;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 1vh;
+  margin-left: -4vh;
+  width: 8vh;
+  height: 8vh;
+  background-image: url(rifle.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  animation: 1s linear spin infinite;
+  will-change: transform;
 }
 #waiting { height: 20vh; margin-top: 10vh; }
 #waiting::before, #waiting::after { height: 20vh; width: 20vh; margin-left: -10vh; }
@@ -103,94 +103,94 @@ body {
 @keyframes spin { from { transform: rotateZ(0deg); } to { transform: rotateZ(360deg); } }
 @keyframes spinflipped { from { transform: scaleX(-1) rotateZ(10deg); } to { transform: scaleX(-1) rotateZ(370deg); } }
 #playerlist a {
-    position: absolute;
-    width: 6vh;
-    height: 6vh;
-    bottom: 1.4vh;
-    right: 0.6vh;
-    display: block;
-    border-width: 0;
+  position: absolute;
+  width: 6vh;
+  height: 6vh;
+  bottom: 1.4vh;
+  right: 0.6vh;
+  display: block;
+  border-width: 0;
 }
 #playerlist a img { width: 6vh; height: 6vh; border-width: 0; opacity: 0.5;}
 
 .dialog {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: stretch;
-    align-items: center;
-    height: 100%;
-    font-size: 5vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+  height: 100%;
+  font-size: 5vh;
 }
 .dialog > * {
-    flex: 0 1 auto;
-    align-self: auto;
-    margin: 1em 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin: 1em 0;
 }
 .dialog button {
-    width: 90%;
-    background: rgba(0,0,0,0.2);
-    border: 1px solid rgba(0,0,0,0.5);
-    padding: 3vh 0;
-    font-size: 7vh;
-    font-family: Kreon, serif;
-    text-transform: uppercase;
-    border-radius: 1vh;
+  width: 90%;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.5);
+  padding: 3vh 0;
+  font-size: 7vh;
+  font-family: Kreon, serif;
+  text-transform: uppercase;
+  border-radius: 1vh;
 }
 #getname input {
-    font-size: 3vh;
-    width: 90%;
-    padding: 2vh 0;
-    margin-bottom: 2vh;
-    text-align: center;
-    font-family: Kreon, serif;
+  font-size: 3vh;
+  width: 90%;
+  padding: 2vh 0;
+  margin-bottom: 2vh;
+  text-align: center;
+  font-family: Kreon, serif;
 }
 #getname button {
-    font-size: 4vh;
+  font-size: 4vh;
 }
 #byside svg {
-    margin: 2vh auto;
-    max-width: 45vh;
-    max-height: 80vh;
+  margin: 2vh auto;
+  max-width: 45vh;
+  max-height: 80vh;
 }
 
 .page { display: none; }
 [data-shake] { animation: 100ms ease-in-out shake infinite alternate; }
 @keyframes shake {
-    0% { transform: translate(2px, 1px) rotate(1deg); }
-    50% { transform: translate(-2px, -1px) rotate(-1deg); }
-    100% { transform: translate(2px, 1px) rotate(1deg); }
+  0% { transform: translate(2px, 1px) rotate(1deg); }
+  50% { transform: translate(-2px, -1px) rotate(-1deg); }
+  100% { transform: translate(2px, 1px) rotate(1deg); }
 }
 
 #arm {
-    transform-origin: 70% 10%;
-    animation: armspin 5s linear infinite;
-    transform: rotateZ(-50deg);
+  transform-origin: 70% 10%;
+  animation: armspin 5s linear infinite;
+  transform: rotateZ(-50deg);
 }
 #forearm {
-    transform-origin: 40% 5%;
-    animation: forearmspin 5s linear infinite;
-    transform: rotateZ(-90deg);
+  transform-origin: 40% 5%;
+  animation: forearmspin 5s linear infinite;
+  transform: rotateZ(-90deg);
 }
 @keyframes armspin {
-    0% { transform: rotateZ(-50deg); } 
-    40% { transform: rotateZ(-50deg); } 
-    60% { transform: rotateZ(0deg); }
-    100% { transform: rotateZ(0deg); }
+  0% { transform: rotateZ(-50deg); } 
+  40% { transform: rotateZ(-50deg); } 
+  60% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(0deg); }
 }
 @keyframes forearmspin {
-    0% { transform: rotateZ(-90deg); }
-    40% { transform: rotateZ(-90deg); }
-    60% { transform: rotateZ(0deg); }
-    100% { transform: rotateZ(0deg); }
+  0% { transform: rotateZ(-90deg); }
+  40% { transform: rotateZ(-90deg); }
+  60% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(0deg); }
 }
 
 .resultspage img {
-    width: 75%;
-    display: block;
-    margin: 1vh 0;
-    opacity: 0.8;
+  width: 75%;
+  display: block;
+  margin: 1vh 0;
+  opacity: 0.8;
 }
 .resultspage h3 { font-size: 3vh; }
 .resultspage h2 { font-size: 5vh; margin: 1vh 0 0 0; }
@@ -198,7 +198,7 @@ body {
 .resultspage button { margin: 2vh 0; }
 
 #settings button {
-    font-size: 3vh;
+  font-size: 3vh;
 }
 
 </style>
@@ -396,437 +396,452 @@ body {
 <script src="/socket.io/socket.io.js"></script>
 <script src="/monikers.js"></script>
 <script>
+function Game () {
+  var socket
+  var ELEMENTS = {}
+  var SOUNDS = {}
+  var timedelta = 0
+  var CONTEXTS = {}
 
-function Game() {
-    var socket, ELEMENTS = {}, SOUNDS = {}, timedelta = 0;
-    var CONTEXTS = {};
+  function shuffle (list) {
+    var i
+    var j
+    var t
+    for (i = 1; i < list.length; i++) {
+      j = Math.floor(Math.random() * (1 + i))  // choose j in [0..i]
+      if (j !== i) {
+        t = list[i]                        // swap list[i] and list[j]
+        list[i] = list[j]
+        list[j] = t
+      }
+    }
+  }
+  var crimes = ['Rustlin’', 'Horse-hasslin’', 'Thievery', 'Cattle-Stealin’', 'Drinkin’',
+        'Lollygaggin’', 'Murder', 'Irony', 'Riflin’', 'Shootin’', 'Knives', 'Riots', 'Melees']
+  var longcrimes = ['Lewd Behaviour Injurious to Morals', 'Robbin’ the Deadwood Stage',
+        'Makin’ Free with Folks’ Property', 'Mistreatment of the Women',
+        'Drinking the Whole Spittoon', 'Cheatin’ at Cards', 'Playin’ With a Stacked Deck',
+        'Buildin’ Sites Requirin’ JS', 'Disturbances of the Peace']
+  var msgid = 1
+  function getTimeDelta (done) {
+    var deltas = {}
+    socket.on('timereply', handleTimeReply)
 
-    function shuffle(list) {
-        var i, j, t;
-        for (i = 1; i < list.length; i++) {
-            j = Math.floor(Math.random()*(1+i));  // choose j in [0..i]
-            if (j != i) {
-                t = list[i];                        // swap list[i] and list[j]
-                list[i] = list[j];
-                list[j] = t;
-            }
+    function handleTimeReply (msg) {
+      deltas[msg.msgid].localEnd = new Date().getTime()
+      deltas[msg.msgid].serverTime = msg.time
+      next()
+    }
+
+    function next () {
+      if (Object.keys(deltas).length >= 10) {
+        // find the average
+        var totalDelta = 0
+        var localMiddleTime
+        var drift
+        for (var k in deltas) {
+          localMiddleTime = ((deltas[k].localEnd - deltas[k].localStart) / 2) + deltas[k].localStart
+          drift = localMiddleTime - deltas[k].serverTime // this will be positive if local clock is ahead of server clock
+          totalDelta += drift
         }
-    }
-    var crimes = ["Rustlin’", "Horse-hasslin’", "Thievery", "Cattle-Stealin’", "Drinkin’",
-        "Lollygaggin’", "Murder", "Irony", "Riflin’", "Shootin’", "Knives", "Riots", "Melees"];
-    var longcrimes = ["Lewd Behaviour Injurious to Morals", "Robbin’ the Deadwood Stage",
-        "Makin’ Free with Folks’ Property", "Mistreatment of the Women",
-        "Drinking the Whole Spittoon", "Cheatin’ at Cards", "Playin’ With a Stacked Deck",
-        "Buildin’ Sites Requirin’ JS", "Disturbances of the Peace"]
-    var msgid = 1;
-    function getTimeDelta(done) {
-        var deltas = {};
-        socket.on("timereply", handleTimeReply);
-
-        function handleTimeReply(msg) {
-            deltas[msg.msgid].localEnd = new Date().getTime();
-            deltas[msg.msgid].serverTime = msg.time;
-            next();
-        }
-        function next() {
-            if (Object.keys(deltas).length >= 10) {
-                // find the average
-                var totalDelta = 0, localMiddleTime, drift;
-                for (var k in deltas) {
-                    localMiddleTime = ((deltas[k].localEnd - deltas[k].localStart) / 2) + deltas[k].localStart;
-                    drift = localMiddleTime - deltas[k].serverTime; // this will be positive if local clock is ahead of server clock
-                    totalDelta += drift;
-                }
-                var averageDelta = totalDelta / Object.keys(deltas).length;
-                socket.off("timereply", handleTimeReply);
-                return done(averageDelta);
-            }
-            deltas[msgid] = {localStart: new Date().getTime()};
-            socket.emit('time', {msgid: msgid++});
-        }
-
-        next();
+        var averageDelta = totalDelta / Object.keys(deltas).length
+        socket.off('timereply', handleTimeReply)
+        return done(averageDelta)
+      }
+      deltas[msgid] = {localStart: new Date().getTime()}
+      socket.emit('time', {msgid: msgid++})
     }
 
-    var gunStateHandlers = {}, gunState = "unknown", gunMonitoring = false, BETA_TOLERANCE = 15;
-    function monitorGunState(handlers) {
-        gunStateHandlers = handlers;
-        var fireOnStartup = gunStateHandlers[gunState];
-        if (fireOnStartup) { console.log("fireOnStartup", gunState); fireOnStartup(); }
-        if (!gunMonitoring) {
-            console.log("we are not gunMonitoring");
-            gunMonitoring = true;
-            window.addEventListener('deviceorientation', function(e) {
-                var gs;
-                if ((e.beta >= (-90 - BETA_TOLERANCE)) && (e.beta <= (-90 + BETA_TOLERANCE))) {
-                    gs = "down";
-                } else if (((e.beta >= -180) && e.beta <= (-180 + BETA_TOLERANCE)) ||
-                           ((e.beta <= 180) && (e.beta >= 90))) {
-                    gs = "up";
-                } else {
-                    gs = "neither";
-                }
-                if (gunState != gs) {
-                    console.log("state was", gunState, "and now is", gs, "with elements", e.alpha, e.beta, e.gamma);
-                    var match = gunStateHandlers[gs];
-                    //console.log("calling", match, gs, gunStateHandlers);
-                    if (match) { setTimeout(match, 0); } // important that that gets called in the next tick, not now
-                }
-                gunState = gs;
-                //console.log("do", e.alpha, e.beta, e.gamma, gunState);
-            }, false);
-        }
-    }
+    next()
+  }
 
-    function clearSocketMessageWait(){} // defined here to be public; overridden in waitforSocketMessage
-
-    function waitForSocketMessage(switcher) {
-        return function() {
-            // we set up a wait on the messages from the socket
-            // if we get one of them, we unbind the others
-            // if we get an unexpected one, we log it and disregard it
-            var handlers = {};
-            function unbindAll() {
-                Object.keys(handlers).forEach(function(messageName) { socket.off(messageName, handlers[messageName]); })
-            }
-            function handler(messageName, msg) {
-                unbindAll();
-                clearTimeout(abort);
-                // and call this one
-                switcher[messageName](msg);
-            }
-
-            Object.keys(switcher).forEach(function(messageName) {
-                var createdHandler = function(msg) {
-                    handler(messageName, msg);
-                };
-                handlers[messageName] = createdHandler;
-                socket.on(messageName, createdHandler);
-            });
-            var abort = setTimeout(function() {
-                unbindAll();
-                switcher.abortTimeout();
-            }, 5000);
-            clearSocketMessageWait = function() { unbindAll(); clearTimeout(abort); }
-        }
-    }
-    function abortTimeout() {
-        showPage("noconnection", function() { location.reload(); });
-    }
-    function showPage(pn, onClickHandler) {
-        // hide all pages
-        ELEMENTS.pages.forEach(function(p) { p.style.display = null; })
-        var page = document.getElementById(pn);
-        if (page.classList.contains("dialog")) {
-            var handlerWrapper = function(e) {
-                if (e.target.nodeName.toLowerCase() == "button") {
-                    page.removeEventListener("click", handlerWrapper, false);
-                    if (onClickHandler) onClickHandler(e);
-                }
-            }
-            page.addEventListener("click", handlerWrapper, false);
-        }
-        page.style.display = page.classList.contains("dialog") ? "flex" : "block";
-    }
-
-    function setName(done) {
-        var name = window.localStorage.getItem("gunslinger-name");
-        if (name) {
-            console.log("Got a LocalStorage name", name);
-            setTimeout(function() { done(); }, 0);
-            return;
-        }
-
-        function gotname(e) {
-            e.preventDefault();
-            console.log("No LocalStorage name");
-            var iname = document.getElementById("iname");
-            name = iname.value;
-            if (name == "") {
-                iname.dataset.shake = "shake";
-                setTimeout(function() { delete iname.dataset.shake; }, 400);
-            } else {
-                if (name.indexOf(" ") !== -1) {
-                    if (Math.random() < 0.5) {
-                        name = "“" + MONIKERS.start[Math.floor(Math.random() * MONIKERS.start.length)] + "” " + name;
-                    } else {
-                        name = name.replace(" ", " “" + MONIKERS.middle[Math.floor(Math.random() * MONIKERS.middle.length)] + "” ");
-                    }
-                } else {
-                    name = "“" + MONIKERS.start[Math.floor(Math.random() * MONIKERS.start.length)] + "” " + name;
-                }
-                window.localStorage.setItem("gunslinger-name", name);
-                console.log("Set LocalStorage name and this.name to", name);
-                setTimeout(function() { done(); }, 0);
-            }
-        }
-        // remove it in case it was set from last time
-        ELEMENTS.getNameForm.removeEventListener("submit", gotname, false);
-        ELEMENTS.getNameForm.addEventListener("submit", gotname, false);
-        showPage("getname");
-    }
-
-    function register(done) {
-        console.log("registering as", window.localStorage.getItem("gunslinger-name"));
-        socket.emit("register", {name: window.localStorage.getItem("gunslinger-name")});
-        done();
-    }
-
-    function rejectChallenge(msg) {
-        showPage("reject", function() {
-            nameOK();
-        });
-    }
-    function absentChallenge(msg) {
-        showPage("absent", function() {
-            nameOK();
-        });
-    }
-    function startMusic() {
-        return playSound("wild");
-    }
-    function playSound(sound, volume) {
-        var context = CONTEXTS[sound];
-        if (!context) {
-            context = new AudioContext();
-            CONTEXTS[sound] = context;
-        }
-        var source = context.createBufferSource(); // creates a sound source
-        source.buffer = SOUNDS[sound];             // tell the source which sound to play
-        var gainNode = context.createGain();
-        source.connect(gainNode);
-        gainNode.connect(context.destination);
-        if (volume === 0) gainNode.gain.value = 0;
-        source.start(0);
-        return source;
-    }
-    function battleResult(msg) {
-        if (msg.youwin) {
-            ELEMENTS.youwin_yourtime.firstChild.nodeValue = msg.yourtime == 999999 ? "drew too early" : Math.round(msg.yourtime).toString();
-            ELEMENTS.youwin_theirtime.firstChild.nodeValue = msg.theirtime == 999999 ? "drew too early" : Math.round(msg.theirtime).toString();
-            ELEMENTS.youwin_theirname.firstChild.nodeValue = msg.opponent;
-            showPage("youwin", nameOK);
+  var gunStateHandlers = {}
+  var gunState = 'unknown'
+  var gunMonitoring = false
+  var BETA_TOLERANCE = 15
+  function monitorGunState (handlers) {
+    gunStateHandlers = handlers
+    var fireOnStartup = gunStateHandlers[gunState]
+    if (fireOnStartup) { console.log('fireOnStartup', gunState); fireOnStartup() }
+    if (!gunMonitoring) {
+      console.log('we are not gunMonitoring')
+      gunMonitoring = true
+      window.addEventListener('deviceorientation', function (e) {
+        var gs
+        if ((e.beta >= (-90 - BETA_TOLERANCE)) && (e.beta <= (-90 + BETA_TOLERANCE))) {
+          gs = 'down'
+        } else if (((e.beta >= -180) && e.beta <= (-180 + BETA_TOLERANCE)) ||
+         ((e.beta <= 180) && (e.beta >= 90))) {
+          gs = 'up'
         } else {
-            ELEMENTS.theywin_yourtime.firstChild.nodeValue = msg.yourtime == 999999 ? "drew too early" : Math.round(msg.yourtime).toString();
-            ELEMENTS.theywin_theirtime.firstChild.nodeValue = msg.theirtime == 999999 ? "drew too early" : Math.round(msg.theirtime).toString();
-            ELEMENTS.theywin_theirname.firstChild.nodeValue = msg.opponent;
-            showPage("theywin", nameOK);
+          gs = 'neither'
         }
-        console.log("got result msg", msg);
-    }
-    function opponentReady(msg) {
-        console.log("opponent ready!", msg);
-        showPage("duel");
-        var musicContext = startMusic();
-        var now = new Date().getTime();
-        var serverTimeAsLocalTime = msg.firetime + timedelta;
-        var timeFromNowToThen = serverTimeAsLocalTime - now;
-        setTimeout(function() {
-            musicContext.stop();
-
-            monitorGunState({}); // so we don't keep playing gunshots
-            waitForSocketMessage({
-                "result": battleResult,
-                "abortTimeout": abortTimeout
-            })();
-            showPage("waiting");
-
-            if (hasRicocheted) { // then we lost. Fail.
-                socket.emit("time taken", {taken: 999999});
-            } else {
-                var drawStart = (new Date()).getTime();
-                monitorGunState({
-                    up: function() {
-                        var drawTime = (new Date()).getTime() - drawStart;
-                        showPage("who");
-                        playSound("gun");
-                        socket.emit("time taken", {taken: drawTime});
-                    }
-                });
-                playSound("draw");
-            }
-        }, timeFromNowToThen);
-        console.log("will fire msg at " + timeFromNowToThen + " from now");
-    }
-    var hasRicocheted = false;
-    function readyForBattle() {
-        var vibrating = false, vibratingTimer;
-        hasRicocheted = false;
-        function startVibrating() {
-            if (hasRicocheted) {
-                console.log("We've already ricocheted, so this shouldn't happen");
-            } else if (vibrating) {
-                console.log("already vibrating");
-            } else {
-                vibrating = true;
-                console.log("start vibrating", navigator.vibrate);
-                if (navigator.vibrate) {
-                    navigator.vibrate(1000);
-                }
-                vibratingTimer = setTimeout(function() {
-                    navigator.vibrate(0);
-                    console.log("vibrating too long!");
-                    vibrating = false;
-                    hasRicocheted = true;
-                    playSound("ricochet");
-                    monitorGunState({});
-                }, 1000);
-            }
+        if (gunState !== gs) {
+          console.log('state was', gunState, 'and now is', gs, 'with elements', e.alpha, e.beta, e.gamma)
+          var match = gunStateHandlers[gs]
+          // console.log("calling", match, gs, gunStateHandlers);
+          if (match) { setTimeout(match, 0) } // important that that gets called in the next tick, not now
         }
+        gunState = gs
+        // console.log("do", e.alpha, e.beta, e.gamma, gunState);
+      }, false)
+    }
+  }
+
+  function clearSocketMessageWait () {} // defined here to be public; overridden in waitforSocketMessage
+
+  function waitForSocketMessage (switcher) {
+    return function () {
+      // we set up a wait on the messages from the socket
+      // if we get one of them, we unbind the others
+      // if we get an unexpected one, we log it and disregard it
+      var handlers = {}
+      function unbindAll () {
+        Object.keys(handlers).forEach(function (messageName) { socket.off(messageName, handlers[messageName]) })
+      }
+      function handler (messageName, msg) {
+        unbindAll()
+        clearTimeout(abort)
+        // and call this one
+        switcher[messageName](msg)
+      }
+
+      Object.keys(switcher).forEach(function (messageName) {
+        var createdHandler = function (msg) {
+          handler(messageName, msg)
+        }
+        handlers[messageName] = createdHandler
+        socket.on(messageName, createdHandler)
+      })
+      var abort = setTimeout(function () {
+        unbindAll()
+        switcher.abortTimeout()
+      }, 5000)
+      clearSocketMessageWait = function () { unbindAll(); clearTimeout(abort) }
+    }
+  }
+
+  function abortTimeout () {
+    showPage('noconnection', function () { window.location.reload() })
+  }
+
+  function showPage (pn, onClickHandler) {
+    // hide all pages
+    ELEMENTS.pages.forEach(function (p) { p.style.display = null })
+    var page = document.getElementById(pn)
+    if (page.classList.contains('dialog')) {
+      var handlerWrapper = function (e) {
+        if (e.target.nodeName.toLowerCase() === 'button') {
+          page.removeEventListener('click', handlerWrapper, false)
+          if (onClickHandler) onClickHandler(e)
+        }
+      }
+      page.addEventListener('click', handlerWrapper, false)
+    }
+    page.style.display = page.classList.contains('dialog') ? 'flex' : 'block'
+  }
+
+  function setName (done) {
+    var name = window.localStorage.getItem('gunslinger-name')
+    if (name) {
+      console.log('Got a LocalStorage name', name)
+      setTimeout(function () { done() }, 0)
+      return
+    }
+
+    function gotname (e) {
+      e.preventDefault()
+      console.log('No LocalStorage name')
+      var iname = document.getElementById('iname')
+      name = iname.value
+      if (name === '') {
+        iname.dataset.shake = 'shake'
+        setTimeout(function () { delete iname.dataset.shake }, 400)
+      } else {
+        if (name.indexOf(' ') !== -1) {
+          if (Math.random() < 0.5) {
+            name = '“' + MONIKERS.start[Math.floor(Math.random() * MONIKERS.start.length)] + '” ' + name
+          } else {
+            name = name.replace(' ', ' “' + MONIKERS.middle[Math.floor(Math.random() * MONIKERS.middle.length)] + '” ')
+          }
+        } else {
+          name = '“' + MONIKERS.start[Math.floor(Math.random() * MONIKERS.start.length)] + '” ' + name
+        }
+        window.localStorage.setItem('gunslinger-name', name)
+        console.log('Set LocalStorage name and this.name to', name)
+        setTimeout(function () { done() }, 0)
+      }
+    }
+    // remove it in case it was set from last time
+    ELEMENTS.getNameForm.removeEventListener('submit', gotname, false)
+    ELEMENTS.getNameForm.addEventListener('submit', gotname, false)
+    showPage('getname')
+  }
+
+  function register (done) {
+    console.log('registering as', window.localStorage.getItem('gunslinger-name'))
+    socket.emit('register', {name: window.localStorage.getItem('gunslinger-name')})
+    done()
+  }
+
+  function rejectChallenge (msg) {
+    showPage('reject', function () {
+      nameOK()
+    })
+  }
+  function absentChallenge (msg) {
+    showPage('absent', function () {
+      nameOK()
+    })
+  }
+  function startMusic () {
+    return playSound('wild', 1, 4)
+  }
+  function playSound (sound, volume, startPosition) {
+    var context = CONTEXTS[sound]
+    if (!context) {
+      context = new window.AudioContext()
+      CONTEXTS[sound] = context
+    }
+    var source = context.createBufferSource() // creates a sound source
+    source.buffer = SOUNDS[sound]             // tell the source which sound to play
+    var gainNode = context.createGain()
+    source.connect(gainNode)
+    gainNode.connect(context.destination)
+    if (volume === 0) gainNode.gain.value = 0
+    source.start(0, startPosition || 0)
+    return source
+  }
+  function battleResult (msg) {
+    if (msg.youwin) {
+      ELEMENTS.youwin_yourtime.firstChild.nodeValue = msg.yourtime === 999999 ? 'drew too early' : Math.round(msg.yourtime).toString()
+      ELEMENTS.youwin_theirtime.firstChild.nodeValue = msg.theirtime === 999999 ? 'drew too early' : Math.round(msg.theirtime).toString()
+      ELEMENTS.youwin_theirname.firstChild.nodeValue = msg.opponent
+      showPage('youwin', nameOK)
+    } else {
+      ELEMENTS.theywin_yourtime.firstChild.nodeValue = msg.yourtime === 999999 ? 'drew too early' : Math.round(msg.yourtime).toString()
+      ELEMENTS.theywin_theirtime.firstChild.nodeValue = msg.theirtime === 999999 ? 'drew too early' : Math.round(msg.theirtime).toString()
+      ELEMENTS.theywin_theirname.firstChild.nodeValue = msg.opponent
+      showPage('theywin', nameOK)
+    }
+    console.log('got result msg', msg)
+  }
+  function opponentReady (msg) {
+    console.log('opponent ready!', msg)
+    showPage('duel')
+    var musicContext = startMusic()
+    var now = new Date().getTime()
+    var serverTimeAsLocalTime = msg.firetime + timedelta
+    var timeFromNowToThen = serverTimeAsLocalTime - now
+    setTimeout(function () {
+      musicContext.stop()
+
+      monitorGunState({}) // so we don't keep playing gunshots
+      waitForSocketMessage({
+        'result': battleResult,
+        'abortTimeout': abortTimeout
+      })()
+      showPage('waiting')
+
+      if (hasRicocheted) { // then we lost. Fail.
+        socket.emit('time taken', {taken: 999999})
+      } else {
+        var drawStart = (new Date()).getTime()
         monitorGunState({
-            down: function() {
-                if (vibrating) {
-                    console.log("stop vibrating");
-                    navigator.vibrate(0);
-                    vibrating = false;
-                    clearTimeout(vibratingTimer);
-                }
-            },
-            neither: startVibrating,
-            up: startVibrating
-        });
-        waitForSocketMessage({
-            "opponent ready": opponentReady,
-            "abortTimeout": abortTimeout
-        })();
-        socket.emit("ready");
-        showPage("waiting");
-    }
-    function acceptChallenge(msg) {
-        getTimeDelta(function(td) {
-            timedelta = td;
-            console.log("timedelta is", td);
-            showPage("byside");
-            monitorGunState({
-                down: readyForBattle
-            });
+          up: function () {
+            var drawTime = (new Date()).getTime() - drawStart
+            showPage('who')
+            playSound('gun')
+            socket.emit('time taken', {taken: drawTime})
+          }
         })
-    }
-    function sendChallenge(opponent) {
-        waitForSocketMessage({
-            "reject": rejectChallenge,
-            "absent": absentChallenge,
-            "accept": acceptChallenge,
-            "abortTimeout": abortTimeout
-        })();
-        socket.emit("challenge", {opponent: opponent});
-    }
+        playSound('draw')
+      }
+    }, timeFromNowToThen)
+    console.log('will fire msg at ' + timeFromNowToThen + ' from now')
+  }
 
-    function displayPlayerList(msg) {
-        var frag = document.createDocumentFragment();
-        msg.names.forEach(function(n) {
-            var li = document.createElement("li");
-            li.appendChild(document.createTextNode(n));
-            li.onclick = function() {
-                playSound("gun", 0); // do this here so that we play in a click event for iOS
-                showPage("waiting");
-                sendChallenge(n);
-            }
-            frag.appendChild(li);
-        });
-        ELEMENTS.playerlist.appendChild(frag);
+  var hasRicocheted = false
+  function readyForBattle () {
+    var vibrating = false
+    var vibratingTimer
+    hasRicocheted = false
+    function startVibrating () {
+      if (hasRicocheted) {
+        console.log("We've already ricocheted, so this shouldn't happen")
+      } else if (vibrating) {
+        console.log('already vibrating')
+      } else {
+        vibrating = true
+        console.log('start vibrating', navigator.vibrate)
+        if (navigator.vibrate) {
+          navigator.vibrate(1000)
+        }
+        vibratingTimer = setTimeout(function () {
+          navigator.vibrate(0)
+          console.log('vibrating too long!')
+          vibrating = false
+          hasRicocheted = true
+          playSound('ricochet')
+          monitorGunState({})
+        }, 1000)
+      }
     }
+    monitorGunState({
+      down: function () {
+        if (vibrating) {
+          console.log('stop vibrating')
+          navigator.vibrate(0)
+          vibrating = false
+          clearTimeout(vibratingTimer)
+        }
+      },
+      neither: startVibrating,
+      up: startVibrating
+    })
+    waitForSocketMessage({
+      'opponent ready': opponentReady,
+      'abortTimeout': abortTimeout
+    })()
+    socket.emit('ready')
+    showPage('waiting')
+  }
+  function acceptChallenge (msg) {
+    getTimeDelta(function (td) {
+      timedelta = td
+      console.log('timedelta is', td)
+      showPage('byside')
+      monitorGunState({
+        down: readyForBattle
+      })
+    })
+  }
+  function sendChallenge (opponent) {
+    waitForSocketMessage({
+      'reject': rejectChallenge,
+      'absent': absentChallenge,
+      'accept': acceptChallenge,
+      'abortTimeout': abortTimeout
+    })()
+    socket.emit('challenge', {opponent: opponent})
+  }
 
-    function showSettings() {
-        clearSocketMessageWait();
-        showPage("settings", function(e) {
-            if (e.target.classList.contains("newname")) {
-                localStorage.removeItem("gunslinger-name");
-            }
-            location.reload();
-        });
+  function displayPlayerList (msg) {
+    var frag = document.createDocumentFragment()
+    msg.names.forEach(function (n) {
+      var li = document.createElement('li')
+      li.appendChild(document.createTextNode(n))
+      li.onclick = function () {
+        playSound('gun', 0) // do this here so that we play in a click event for iOS
+        showPage('waiting')
+        sendChallenge(n)
+      }
+      frag.appendChild(li)
+    })
+    ELEMENTS.playerlist.appendChild(frag)
+  }
+
+  function showSettings () {
+    clearSocketMessageWait()
+    showPage('settings', function (e) {
+      if (e.target.classList.contains('newname')) {
+        window.localStorage.removeItem('gunslinger-name')
+      }
+      window.location.reload()
+    })
+  }
+
+  function nameOK (msg) {
+    waitForSocketMessage({
+      'playerlist': displayPlayerList,
+      'abortTimeout': abortTimeout
+    })()
+    ELEMENTS.playerlist.innerHTML = ''
+    shuffle(crimes)
+    shuffle(longcrimes)
+    ELEMENTS.crime1.innerHTML = crimes[0]
+    ELEMENTS.crime2.innerHTML = crimes[1]
+    ELEMENTS.crime3.innerHTML = longcrimes[0]
+
+    // remove it in case it was set from last time
+    ELEMENTS.settingsa.removeEventListener('click', showSettings, false)
+    ELEMENTS.settingsa.addEventListener('click', showSettings, false)
+
+    showPage('playerlist')
+    socket.emit('getlist')
+  }
+  function challenge (msg) {
+    console.log('challenge by', msg)
+  }
+  function nameUsed (msg) {
+    console.log('name you chose is used')
+  }
+
+  function begin () {
+    setName(function () {
+      register(waitForSocketMessage({
+        'name ok': nameOK,
+        'challenge': challenge,
+        'name used': nameUsed,
+        'abortTimeout': abortTimeout
+      }))
+    })
+  }
+
+  function populateElements () {
+    ELEMENTS = {
+      playerlist: document.querySelector('#playerlist ul'),
+      pages: Array.prototype.slice.call(document.querySelectorAll('.page')),
+      youwin_theirname: document.querySelector('#youwin .theirname'),
+      youwin_theirtime: document.querySelector('#youwin .theirtime'),
+      youwin_yourtime: document.querySelector('#youwin .yourtime'),
+      theywin_theirname: document.querySelector('#theywin .theirname'),
+      theywin_theirtime: document.querySelector('#theywin .theirtime'),
+      theywin_yourtime: document.querySelector('#theywin .yourtime'),
+      crime1: document.getElementById('crime1'),
+      crime2: document.getElementById('crime2'),
+      crime3: document.getElementById('crime3'),
+      settingsa: document.querySelector('#playerlist a'),
+      getNameForm: document.querySelector('#getname form')
     }
-
-    function nameOK(msg) {
-        waitForSocketMessage({
-            "playerlist": displayPlayerList,
-            "abortTimeout": abortTimeout
-        })();
-        ELEMENTS.playerlist.innerHTML = "";
-        shuffle(crimes); shuffle(longcrimes);
-        ELEMENTS.crime1.innerHTML = crimes[0];
-        ELEMENTS.crime2.innerHTML = crimes[1];
-        ELEMENTS.crime3.innerHTML = longcrimes[0];
-
-        // remove it in case it was set from last time
-        ELEMENTS.settingsa.removeEventListener("click", showSettings, false);
-        ELEMENTS.settingsa.addEventListener("click", showSettings, false);
-
-        showPage("playerlist");
-        socket.emit("getlist");
-    }
-    function challenge(msg) {
-        console.log("challenge by", msg);
-    }
-    function nameUsed(msg) {
-        console.log("name you chose is used");
-    }
-
-    function begin() {
-        setName(function() {
-            register(waitForSocketMessage({
-                "name ok": nameOK,
-                "challenge": challenge,
-                "name used": nameUsed,
-                "abortTimeout": abortTimeout
-            }));
+  }
+  function populateSounds (done) {
+    var sounds = ['draw', 'gun', 'wild', 'ricochet']
+    window.AudioContext = window.AudioContext || window.webkitAudioContext
+    var context = new window.AudioContext()
+    function next () {
+      var ns = sounds.shift()
+      if (!ns) { return done() }
+      var request = new XMLHttpRequest()
+      request.open('GET', ns + '.mp3', true)
+      request.responseType = 'arraybuffer'
+      request.onload = function () {
+        context.decodeAudioData(request.response, function (buffer) {
+          SOUNDS[ns] = buffer
+          setTimeout(next, 0)
+        }, function (err) {
+          console.log('error loading sound', ns, err)
         })
+      }
+      request.send()
     }
-
-    function populateElements() {
-        ELEMENTS = {
-            playerlist: document.querySelector("#playerlist ul"),
-            pages: Array.prototype.slice.call(document.querySelectorAll(".page")),
-            youwin_theirname: document.querySelector("#youwin .theirname"),
-            youwin_theirtime:document.querySelector("#youwin .theirtime"),
-            youwin_yourtime: document.querySelector("#youwin .yourtime"),
-            theywin_theirname: document.querySelector("#theywin .theirname"),
-            theywin_theirtime:document.querySelector("#theywin .theirtime"),
-            theywin_yourtime: document.querySelector("#theywin .yourtime"),
-            crime1: document.getElementById("crime1"),
-            crime2: document.getElementById("crime2"),
-            crime3: document.getElementById("crime3"),
-            settingsa: document.querySelector("#playerlist a"),
-            getNameForm: document.querySelector("#getname form"),
-        };
+    next()
+  }
+  this.start = function () {
+    try {
+      socket = io()
+      populateElements()
+      showPage('waiting')
+      populateSounds(begin)
+    } catch (e) {
+      console.log(e)
+      alert('error!')
     }
-    function populateSounds(done) {
-        var sounds = ["draw", "gun", "wild", "ricochet"];
-        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        var context = new AudioContext();
-        function next() {
-            var ns = sounds.shift();
-            if (!ns) { return done(); }
-            var request = new XMLHttpRequest();
-            request.open('GET', ns + ".mp3", true);
-            request.responseType = 'arraybuffer';
-            request.onload = function() {
-                context.decodeAudioData(request.response, function(buffer) {
-                    SOUNDS[ns] = buffer;
-                    setTimeout(next, 0);
-                }, function(err) {
-                    console.log("error loading sound", ns, err);
-                });
-            }
-            request.send();
-        }
-        next();
-    }
-    this.start = function() {
-        try {
-            socket = io();
-            populateElements();
-            showPage("waiting");
-            populateSounds(begin);
-        } catch(e) {
-            console.log(e);
-            alert("error!");
-        }
-    }
+  }
 }
 
-var game = new Game();
-game.start();
+var game = new Game()
+game.start()
 
 </script>
 
